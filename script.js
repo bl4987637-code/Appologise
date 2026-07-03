@@ -98,22 +98,25 @@ if(landingPhotoInput){
   })
 }
 
-// Auto-load saved photo.jpg from the project folder if present
+// Auto-load saved photo from common filenames if present (jpg / jpeg / png)
 (function tryLoadSavedPhoto(){
-  const testImg = new Image()
-  testImg.onload = ()=>{
-    // file exists and can be loaded via relative path
-    selectedPhotoDataUrl = 'photo.jpg'
-    if(landingPhotoPreview) {
-      landingPhotoPreview.src = 'photo.jpg'
-      landingPhotoPreview.classList.remove('hidden')
+  const candidates = ['photo.jpg', 'photo.jpeg', 'photo.png']
+  candidates.forEach(src => {
+    const testImg = new Image()
+    testImg.onload = ()=>{
+      // file exists and can be loaded via relative path
+      selectedPhotoDataUrl = src
+      if(landingPhotoPreview) {
+        landingPhotoPreview.src = src
+        landingPhotoPreview.classList.remove('hidden')
+      }
+      card.classList.remove('disabled')
     }
-    card.classList.remove('disabled')
-  }
-  testImg.onerror = ()=>{
-    // no saved photo found — do nothing
-  }
-  testImg.src = 'photo.jpg'
+    testImg.onerror = ()=>{
+      // no saved photo found at this path — do nothing
+    }
+    testImg.src = src
+  })
 })()
 
 // Forgiveness handlers
