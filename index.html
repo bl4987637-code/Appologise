@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sorry — A Small Apology</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main class="centered">
+      <div class="landing-photo">
+        <label for="landingPhotoInput" class="photo-label">Choose a photo to send</label>
+        <input type="file" id="landingPhotoInput" accept="image/*" class="photo-input">
+        <img id="landingPhotoPreview" class="photo-preview hidden" alt="Selected photo">
+        <input id="landingEmail" class="landing-email" type="email" placeholder="Father's email (optional)">
+      </div>
+      <div id="card" class="card" role="button" tabindex="0">
+        <h1>Something for you</h1>
+        <p class="hint">Click to see</p>
+      </div>
+    </main>
+
+    <div id="overlay" class="overlay hidden" aria-hidden="true">
+      <div class="emoji">😢 😔 😞</div>
+      <div class="paper hidden" id="paper">
+        <div class="paper-inner">
+          <h2>I'm sorry</h2>
+          <p id="apology"></p>
+
+          <img id="photoPreview" class="photo-preview hidden" alt="Photo preview">
+
+          <div id="forgiveness" class="forgiveness hidden">
+            <h3>Will you forgive me?</h3>
+            <div class="choices">
+              <button id="yesBtn" class="choice yes">Yes</button>
+              <button id="noBtn" class="choice no">No</button>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="sendBtn" class="primary">Download & Prepare Email</button>
+            <button id="closeBtn">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

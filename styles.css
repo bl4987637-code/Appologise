@@ -1,0 +1,47 @@
+:root{
+  --bg:#f6f3ef;
+  --card:#fff;
+  --accent:#d46a6a;
+  --text:#222;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family: 'Indie Flower', system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--text); margin:0}
+.centered{height:100vh;display:flex;align-items:center;justify-content:center}
+.card{background:var(--card);padding:36px 44px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.08);text-align:center;cursor:pointer}
+.card h1{margin:0;font-size:28px}
+.card .hint{margin-top:8px;color:#666}
+.overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;backdrop-filter:blur(3px);}
+.overlay.hidden{display:none}
+.emoji{font-size:48px;margin-bottom:18px;opacity:0;transform:translateY(-10px);transition:all .5s ease}
+.paper{width:320px;background:#fff;border-radius:8px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.12);transform:translateY(20px);opacity:0;transition:all .5s ease}
+.paper-inner h2{margin:0 0 8px 0;color:var(--accent)}
+#apology{min-height:48px;white-space:pre-wrap}
+.paper.show{transform:translateY(0);opacity:1}
+.emoji.show{opacity:1;transform:translateY(0)}
+button{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:6px;margin-top:12px;cursor:pointer}
+
+.hidden{display:none}
+.photo-area{margin-top:12px;text-align:center}
+.photo-input{display:none}
+.photo-label{display:inline-block;background:#eee;padding:6px 10px;border-radius:6px;color:#333;cursor:pointer}
+.photo-preview{max-width:100%;border-radius:6px;margin-top:8px;box-shadow:0 4px 12px rgba(0,0,0,.08);object-fit:cover}
+
+/* constrain previews so photo doesn't cover whole page */
+#photoPreview{max-width:100%;max-height:180px;display:block;margin:8px auto 0;border-radius:8px;object-fit:cover}
+#landingPhotoPreview{width:120px;height:120px;display:block;margin-top:8px;border-radius:10px;object-fit:cover}
+
+.landing-photo{position:fixed;top:18px;left:18px;background:transparent}
+.landing-photo .photo-label{background:#fff;padding:8px 12px;border-radius:8px;box-shadow:0 6px 14px rgba(0,0,0,.06)}
+.card.disabled{opacity:0.6;pointer-events:none}
+.forgiveness{margin-top:12px;text-align:center}
+.forgiveness h3{margin:6px 0}
+.choices{display:flex;gap:8px;justify-content:center}
+.choice{padding:8px 12px;border-radius:6px;border:none;cursor:pointer}
+.choice.yes{background: #6ccf8b;color:#fff}
+.choice.no{background:#e37b7b;color:#fff}
+
+.reaction{font-size:56px;margin-top:12px}
+.landing-email{display:block;margin-top:8px;padding:8px 10px;border-radius:8px;border:1px solid #ddd;width:220px}
+.actions{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.primary{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:6px}
